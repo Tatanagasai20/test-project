@@ -1,3 +1,18 @@
 export default function TopBar() {
-  return <header className="top-bar">PriaccEnterprise.AI</header>;
+  return (
+    <header style={styles.topBar}>
+      PriaccEnterprise.AI
+    </header>
+  );
 }
+ 
+const styles = {
+  topBar: {
+    backgroundColor: '#A5D867',
+    color: '#111',
+    padding: '1rem',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+};
