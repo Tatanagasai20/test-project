@@ -1,0 +1,33 @@
+#!/bin/bash
+##this is the basic shell for installing docker,building docker images and running container from it, by cloning git repository
+#today date
+echo " today date is: "
+date
+#update the  os
+apt update
+#install docker
+apt install docker.io -y
+#git install
+apt install git -y
+#clone git repo
+git clone https://github.com/Tatanagasai20/test-project.git
+#move to that directory
+cd /root/test-project/node-app/node-app  #this is the directory where my node.js application is their
+#building a docker image
+echo " build docker image "
+docker build -t nodeapp:test1 .
+#check docker images
+echo " docker images "
+docker images
+#run a container from that image
+docker run -d --name node-con2 -p 7000:7000 nodeapp:test1
+
+#for flask python application
+cd /root/test-project/flask-app/flask-app   #pwd for flaskapp
+#docker image build
+docker build -t flaskapp:2.0 .
+#run a container on the image
+docker run -d --name flaskcon -p 6000:6000 flaskapp:2.0
+
+
+
